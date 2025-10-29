@@ -174,17 +174,19 @@ return (
 
 <Input
           label="Maths Marks"
-          type="text"
+          name="maths_marks_c"
+          type="number"
           value={formData.maths_marks_c}
-          onChange={(e) => handleChange("maths_marks_c", e.target.value)}
+          onChange={handleChange}
           error={errors.maths_marks_c}
           placeholder="Enter maths marks"
         />
-        <Input
+<Input
           label="Chemistry Marks"
-          type="text"
+          name="chemistry_marks_c"
+          type="number"
           value={formData.chemistry_marks_c}
-          onChange={(e) => handleChange("chemistry_marks_c", e.target.value)}
+          onChange={handleChange}
           error={errors.chemistry_marks_c}
           placeholder="Enter chemistry marks"
         />

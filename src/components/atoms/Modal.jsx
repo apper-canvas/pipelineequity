@@ -55,9 +55,9 @@ const Modal = ({ isOpen, onClose, title, children, size = "md", className }) => 
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
               >
                 <ApperIcon name="X" className="w-5 h-5 text-gray-500" />
-              </button>
+</button>
             </div>
-            <div className="p-6">
+            <div className="p-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
               {children}
             </div>
           </motion.div>

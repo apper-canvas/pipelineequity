@@ -103,6 +103,29 @@ async create(contactData) {
         const createdContact = successful[0].data;
         
         // Sync contact to CompanyHub via Edge Function
+        try {
+          const { ApperClient } = window.ApperSDK;
+          const companyHubClient = new ApperClient({
+            apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+            apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+          });
+          
+          const syncResponse = await companyHubClient.functions.invoke(import.meta.env.VITE_SYNC_CONTACT_TO_COMPANYHUB, {
+            body: JSON.stringify({
+              contactData: contactData,
+              contactId: createdContact.Id
+            }),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+          
+          if (!syncResponse.success) {
+            console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_SYNC_CONTACT_TO_COMPANYHUB}. The response body is: ${JSON.stringify(syncResponse)}.`);
+          }
+        } catch (error) {
+          console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_SYNC_CONTACT_TO_COMPANYHUB}. The error is: ${error.message}`);
+        }
         
         return createdContact;
       }

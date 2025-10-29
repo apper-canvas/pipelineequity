@@ -191,10 +191,10 @@ return (
           placeholder="Enter chemistry marks"
         />
 
-        <Input
+<Input
           label="Tags"
-          name="tags"
-          value={formData.tags}
+          name="tags_c"
+          value={formData.tags_c}
           onChange={handleChange}
           placeholder="Enter tags separated by commas"
           className="md:col-span-2"
@@ -202,22 +202,22 @@ return (
 
         <Input
           label="Photo URL"
-          name="photoUrl"
+          name="photo_url_c"
           type="url"
-          value={formData.photoUrl}
+          value={formData.photo_url_c}
           onChange={handleChange}
           placeholder="Enter photo URL (optional)"
           className="md:col-span-2"
         />
       </div>
 
-      <div>
+<div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Notes
         </label>
         <textarea
-          name="notes"
-          value={formData.notes}
+          name="notes_c"
+          value={formData.notes_c}
           onChange={handleChange}
           rows={4}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
@@ -225,7 +225,7 @@ return (
         />
       </div>
 
-<div className="flex justify-end space-x-3 mt-6 mb-4 pt-6 border-t border-gray-200">
+<div className="flex justify-end space-x-3 pt-6 border-t border-gray-200">
         <Button
           type="button"
           variant="outline"

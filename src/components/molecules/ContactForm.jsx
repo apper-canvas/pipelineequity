@@ -16,8 +16,7 @@ const [formData, setFormData] = useState({
     science_marks_c: "",
     maths_marks_c: "",
     chemistry_marks_c: "",
-drawing_marks_c: "",
-    history_marks_c: ""
+    drawing_marks_c: ""
   });
   
   const [errors, setErrors] = useState({});
@@ -36,8 +35,7 @@ notes_c: contact.notes_c || "",
         science_marks_c: contact.science_marks_c || "",
         maths_marks_c: contact.maths_marks_c || "",
         chemistry_marks_c: contact.chemistry_marks_c || "",
-drawing_marks_c: contact.drawing_marks_c || "",
-        history_marks_c: contact.history_marks_c || ""
+        drawing_marks_c: contact.drawing_marks_c || ""
       });
     }
   }, [contact]);
@@ -89,11 +87,8 @@ if (formData.maths_marks_c && isNaN(formData.maths_marks_c)) {
     if (formData.chemistry_marks_c && isNaN(formData.chemistry_marks_c)) {
       newErrors.chemistry_marks_c = "Chemistry marks must be a valid number";
     }
-if (formData.drawing_marks_c && isNaN(formData.drawing_marks_c)) {
+    if (formData.drawing_marks_c && isNaN(formData.drawing_marks_c)) {
       newErrors.drawing_marks_c = "Drawing marks must be a valid number";
-    }
-    if (formData.history_marks_c && isNaN(formData.history_marks_c)) {
-      newErrors.history_marks_c = "History marks must be a valid number";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -116,8 +111,7 @@ const contactData = {
         science_marks_c: formData.science_marks_c ? parseInt(formData.science_marks_c) : null,
         maths_marks_c: formData.maths_marks_c ? parseInt(formData.maths_marks_c) : null,
         chemistry_marks_c: formData.chemistry_marks_c ? parseInt(formData.chemistry_marks_c) : null,
-drawing_marks_c: formData.drawing_marks_c ? parseInt(formData.drawing_marks_c) : null,
-        history_marks_c: formData.history_marks_c ? parseInt(formData.history_marks_c) : null
+        drawing_marks_c: formData.drawing_marks_c ? parseInt(formData.drawing_marks_c) : null
       };
 
       await onSave(contactData);
@@ -210,23 +204,8 @@ return (
           onChange={handleChange}
           error={errors.drawing_marks_c}
           placeholder="Enter drawing marks"
-/>
+        />
 
-        <div>
-          <label htmlFor="history_marks_c" className="block text-sm font-medium text-gray-700 mb-1">
-            History Marks
-          </label>
-          <Input
-            id="history_marks_c"
-            name="history_marks_c"
-            type="number"
-            value={formData.history_marks_c}
-            onChange={handleChange}
-            placeholder="Enter history marks"
-            className={errors.history_marks_c ? 'border-red-500' : ''}
-          />
-          {errors.history_marks_c && <p className="text-red-500 text-xs mt-1">{errors.history_marks_c}</p>}
-        </div>
 <Input
           label="Tags"
           name="tags_c"
